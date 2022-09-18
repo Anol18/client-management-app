@@ -4,6 +4,7 @@ import './App.css';
 // import Navbar from "./Components/Navbar/navbar";
 // import Login from ".//Components/Login/login";
 import Contact from "./Components/Contact/contact";
+// import Home from "./Components/Home/home";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     {/* <Navbar/> */}
     {/* <Login/> */}
     <Contact/>
+    {/* <Home/> */}
 
 
    </>

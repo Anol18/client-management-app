@@ -44,9 +44,9 @@ function contact() {
                         <input type="text" placeholder='Your subject'/>
                     </div>
                 <div className="contact-message-input">
-                    <textarea  placeholder='Your message' rows='4' cols='52'/>
+                    <textarea  placeholder='Your message' rows='4' cols='50'/>
                 </div>
-                <button type='submit'>Send</button>
+                <button type='submit'>Send message</button>
                     
  
             </div>
