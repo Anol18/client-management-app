@@ -1,0 +1,86 @@
+
+/* logopage container */
+.login-container
+{
+   
+    height: 100vh;
+   
+}
+.userSection i{
+    position: relative;
+    top: 38px;
+    right: 20px;
+    overflow: hidden;
+}
+.passSection i{
+    position: relative;
+    top: 38px;
+    right: 20px;
+}
+/* Login title section (parent parent block of h1 tag) */
+.admin-header-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  
+}
+
+/* login input field form */
+.login-form-container{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 80vh;
+/* background-image: radial-gradient(rgb(161, 154, 154),rgb(156, 154, 154)); */
+    
+}
+
+/* login input field */
+.login-form-container input{
+    display: block;
+    padding: 10px;
+    margin-top: 10px;
+    border-top:none ;
+    border-left: none;
+    border-right:none ;
+    border-bottom: none;
+    border-bottom: 1px solid rgb(209, 207, 207);
+    outline: none;
+   
+  
+
+   
+}
+.login-form-container input::placeholder{
+    text-align: center;
+}
+
+/* login buttom */
+
+.login-form-container button{
+        padding: 10px 30px 10px 30px;
+        border: none;
+        outline: none;
+        background-color: var(--button-color);
+        /* background-color: rgb(18, 204, 117); */
+        border-radius: 7px;
+       
+        cursor: pointer;
+        color: #fff;
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        /* box-shadow: 3px 3px 3px rgb(20, 192, 92); */
+    
+}
+
+/* button click effect */
+.login-form-container button:active{
+    background-color: var(--button-color);
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+

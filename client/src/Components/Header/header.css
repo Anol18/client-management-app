@@ -1,0 +1,53 @@
+/* container of body */
+.header-top-main{
+   background-image: linear-gradient(to right,rgb(12, 101, 184),rgb(84, 170, 204)60%);
+   color: var(--light);
+   
+}
+.header-container{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    font-weight: bold;
+    
+}
+
+/* container immediate div element */
+
+.header-container div{
+    padding:  1.2rem 0 1.2rem 0;
+
+}
+/* /* container immediate div elements anchor */ */
+.header-container div a{
+    text-decoration: none;
+    color: black;
+}
+
+/* targetting anchor tag with phone number */
+
+a[href="tel:+8801767352490"]{
+     text-decoration: none;
+     color: white;
+   
+}
+
+
+
+
+@media (max-width:600px) {
+    .header-container{
+        display: flex;
+        /* align-items: center; */
+      
+        flex-direction: column;
+        line-height: 2.2rem;
+        font-weight: 300;
+       
+    }
+    .header-container div{
+        padding: 0;
+        
+        
+    }
+}
