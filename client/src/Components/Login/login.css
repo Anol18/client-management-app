@@ -4,17 +4,22 @@
 {
    
     height: 100vh;
+    background: rgba(126, 171, 205, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(126, 171, 205, 0.3);
    
 }
 .userSection i{
     position: relative;
-    top: 38px;
+    top: 29px;
     right: 20px;
-    overflow: hidden;
+    
 }
 .passSection i{
     position: relative;
-    top: 38px;
+    top: 28px;
     right: 20px;
 }
 /* Login title section (parent parent block of h1 tag) */
@@ -36,19 +41,21 @@
     height: 80vh;
 /* background-image: radial-gradient(rgb(161, 154, 154),rgb(156, 154, 154)); */
     
+
 }
 
 /* login input field */
 .login-form-container input{
     display: block;
     padding: 10px;
-    margin-top: 10px;
+    margin-top:0;
     border-top:none ;
     border-left: none;
     border-right:none ;
     border-bottom: none;
     border-bottom: 1px solid rgb(209, 207, 207);
     outline: none;
+    background-image:linear-gradient(rgb(243, 242, 242),#fff);
    
   
 
@@ -72,7 +79,7 @@
         color: #fff;
         display: block;
         margin: auto;
-        margin-top: 20px;
+        
         /* box-shadow: 3px 3px 3px rgb(20, 192, 92); */
     
 }
@@ -84,3 +91,17 @@
     transform: translateY(2px);
 }
 
+.login-remember-pass{
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.login-remember-pass label{
+    vertical-align: middle;
+    position: relative;
+    bottom: 16px;
+    right: -18px;
+    font-size: 0.8rem ;
+    
+}
