@@ -1,0 +1,11 @@
+.sidebar{
+    background: rgb(0,7,61);
+    /* background: rgb(43, 153, 218); */
+    color: white;
+    height:100vh;
+
+}
+
+.top_selection{
+    display: flex;
+}
