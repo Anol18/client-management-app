@@ -1,11 +1,22 @@
-.sidebar{
-    background: rgb(0,7,61);
-    /* background: rgb(43, 153, 218); */
-    color: white;
-    height:100vh;
-
+.sidebar {
+  background: rgb(0, 7, 61);
+  /* background: rgb(43, 153, 218); */
+  color: white;
+  height: 100vh;
 }
 
-.top_selection{
-    display: flex;
+.top_selection {
+  display: flex;
+}
+.slide_menu {
+  display: flex;
+  font-size: 20px;
+  line-height: 50px;
+  padding: 10px;
+  color: aliceblue;
+  text-decoration: none;
+  border: 1px solid red;
+}
+.slide_menu div {
+  padding: 5px;
 }

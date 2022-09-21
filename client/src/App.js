@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 // import Header from "./Components/Header/header"
 // import Navbar from "./Components/Navbar/navbar";
-// import Login from ".//Components/Login/login";
+import Login from ".//Components/Login/login";
 // import Contact from "./Components/Contact/contact";
 // import Home from "./Components/Home/home";
 // import Notice from "./Components/Notice/Notice";
@@ -15,6 +15,7 @@ import Accounts from "./Components/Accounts/Accounts";
 function App() {
   return (
     <>
+      <Login />
       <Router>
         <Sidebar>
           <Routes>
@@ -22,13 +23,13 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/security" element={<Security />} />
             <Route path="/member" element={<Member />} />
-            <Route path="/accounts" element={<Accounts />} />
+            <Route path="/Accounts" element={<Accounts />} />
           </Routes>
         </Sidebar>
       </Router>
       {/* <Header/> */}
       {/* <Navbar/> */}
-      {/* <Login/> */}
+
       {/* <Contact/> */}
       {/* <Home/> */}
       {/* <Notice/> */}

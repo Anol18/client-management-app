@@ -22,7 +22,7 @@ const routes = [
     icon: <SiSpringsecurity />,
   },
   {
-    path: "/Member",
+    // path: "/Member",
     name: "Member",
 
     icon: <FaUserAlt />,
@@ -53,8 +53,10 @@ function Sidebar({ children }) {
           {routes.map((route) => {
             return (
               <NavLink to={route.path} key={route.name}>
-                <div className="icon">{route.icon}</div>
-                <div className="link_text">{route.name}</div>
+                <div className="slide_menu">
+                  <div className="icon">{route.icon}</div>
+                  <div className="link_text">{route.name}</div>
+                </div>
               </NavLink>
             );
           })}
