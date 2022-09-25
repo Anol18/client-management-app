@@ -1,12 +1,13 @@
-
-
+import "./Dashboard.css";
 function Dashbord() {
+  console.log("okay");
   return (
-    
     <>
-      <title>Dashboard</title>
+      <div className="dashboard-logo">
+        <h1>Testing</h1>
+      </div>
     </>
-  )
+  );
 }
 
-export default Dashbord
+export default Dashbord;

@@ -1,14 +1,14 @@
-:root{
-    --light :rgb(255, 255, 255);
-    --dark: #000;
-    --primary-color:blue;
-    --button-color:#5C76B7;
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap");
+:root {
+  --light: rgb(255, 255, 255);
+  --dark: #000;
+  --primary-color: blue;
+  --button-color: #5c76b7;
 }
 
-*{
-    
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'roboto';
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Slab", serif;
 }
