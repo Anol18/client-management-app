@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 // import Header from "./Components/Header/header"
 // import Navbar from "./Components/Navbar/navbar";
@@ -20,19 +20,19 @@ function App() {
       {/* <Dashboard /> */}
       {/* <Login /> */}
       {/* routing */}
-      <Router>
+      <BrowserRouter>
         <Sidebar>
           <Routes>
             {/* <Route path='/' element={<Login/>}/> */}
             <Route exact path="/" element={<Dashboard />} />
-
+            <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/security" element={<Security />} />
             <Route exact path="/Members" element={<Member />} />
             <Route exact path="/Accounts" element={<Accounts />} />
             <Route exact path="/Settings" element={<Settings />} />
           </Routes>
         </Sidebar>
-      </Router>
+      </BrowserRouter>
       {/* <Header/> */}
       {/* <Navbar/> */}
 

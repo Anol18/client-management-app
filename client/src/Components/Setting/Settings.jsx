@@ -5,6 +5,7 @@ function Setting() {
     <>
       <div className="setting-container">
         <h1>Testing</h1>
+      
       </div>
     </>
   );

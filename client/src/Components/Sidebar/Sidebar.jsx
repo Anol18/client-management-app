@@ -1,87 +1,69 @@
-import React from "react";
-// import motion from 'framer-motion';
-import { SiSpringsecurity } from "react-icons/si";
-import { FaUserAlt } from "react-icons/fa";
-import { MdDashboard } from "react-icons/md";
-import { FaBars } from "react-icons/fa";
-import { MdPayments } from "react-icons/md";
+import React, { useState } from "react";
+import { FaTh, FaBars, FaUserAlt } from "react-icons/fa";
+import { MdOutlineSecurity, MdPayments } from "react-icons/md";
+
 import { AiFillSetting } from "react-icons/ai";
-import { motion } from "framer-motion";
-import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
-const routes = [
-  {
-    path: "/",
-    name: "Dashboard",
 
-    icon: <MdDashboard />,
-  },
-  {
-    path: "/Members",
-    name: "Member",
-    icon: <FaUserAlt />,
-  },
-  {
-    path: "/security",
-    name: "Security",
-
-    icon: <SiSpringsecurity />,
-  },
-  {
-    path: "/Accounts",
-    name: "Accounts",
-
-    icon: <MdPayments />,
-  },
-  {
-    path: "/Settings",
-    name: "Settings",
-
-    icon: <AiFillSetting />,
-  },
-];
-// console.log(<MdDashboard/>);
-function Sidebar({ children }) {
+const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
+  const menuItem = [
+    {
+      path: "/dashboard",
+      name: "Dashboard",
+      icon: <FaTh />,
+    },
 
+    {
+      path: "/Members",
+      name: "Members",
+      icon: <FaUserAlt />,
+    },
+    {
+      path: "/security",
+      name: "Security",
+      icon: <MdOutlineSecurity />,
+    },
+    {
+      path: "/Accounts",
+      name: "Accounts",
+      icon: <MdPayments />,
+    },
+    {
+      path: "/Settings",
+      name: "Settings",
+      icon: <AiFillSetting />,
+    },
+  ];
   return (
-    <>
-      {/* slidebar menu */}
-      <div className="sidemenu-container">
-        <motion.div
-          animate={{ width: isOpen ? "200px" : "40px" }}
-          className="sidebar"
-        >
-          {/* top section header of slidebar */}
-          <div className="top_selection">
-            {isOpen && <h1 className="sliderbar_logo">Catagory</h1>}
-
-            <div className="bars">
-              <FaBars onClick={toggle} />
-            </div>
+    <div className="container">
+      <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
+        <div className="top_section">
+          <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
+            Logo
+          </h1>
+          <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
+            <FaBars onClick={toggle} />
           </div>
+        </div>
 
-          {/* main menu of slide bar */}
-          <section className="routes">
-            {routes.map((route) => {
-              return (
-                <NavLink to={route.path} key={route.name}>
-                  <div className="slide_menu">
-                    <i className="icon">{route.icon}</i>
-
-                    {isOpen && <div className="link_text">{route.name}</div>}
-                  </div>
-                </NavLink>
-              );
-            })}
-          </section>
-        </motion.div>
+        {menuItem.map((item, index) => (
+          <NavLink to={item.path} key={index} className="link">
+            <div className="icon">{item.icon}</div>
+            <div
+              style={{ display: isOpen ? "block" : "none" }}
+              className="link_text"
+            >
+              {item.name}
+            </div>
+          </NavLink>
+        ))}
       </div>
+
       <main>{children}</main>
-    </>
+    </div>
   );
-}
+};
 
 export default Sidebar;

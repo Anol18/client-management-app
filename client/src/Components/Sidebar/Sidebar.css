@@ -1,65 +1,51 @@
-/* slidebar main section */
-.sidemenu-container {
-  width: 200px;
-}
 .sidebar {
-  /* background: rgb(0, 7, 61); */
-  width: 200px;
-  background: rgb(238, 238, 238);
-  color: rgb(16, 110, 122);
-  height: 100vh;
-  background: rgba(126, 171, 205, 0.2);
+  /* From https://css.glass */
+  background: rgba(110, 179, 185, 0.19);
+
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(126, 171, 205, 0.3);
+  backdrop-filter: blur(6.9px);
+  -webkit-backdrop-filter: blur(6.9px);
+  border: 1px solid rgba(110, 179, 185, 1);
+  /* background: rgb(77, 117, 124); */
+  color: rgb(64, 152, 155);
+  height: 100vh;
+  width: 200px;
+  transition: all 0.5s;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
-/* Heading section */
-.top_selection {
+.top_section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 10px;
-  background-color: rgb(212, 212, 212);
+  padding: 20px 15px;
 }
-/* slidebar individual menu with icons */
-.slide_menu {
-  display: flex;
-  column-gap: 10px;
-  align-items: center;
-  margin-left: 8px;
-  font-size: 20px;
-  margin-top: 18px;
-  color: rgb(16, 110, 122);
+.logo {
+  font-size: 30px;
 }
-.slide_menu div {
-  /* background: red; */
-  margin-bottom: 3px;
-  width: 160px;
-  transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-  padding: 3px 0 3px 0;
-}
-
-/* item hover effect */
-.slide_menu:hover {
-  border-right: 4px inset rgb(41, 64, 128);
-  transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-  background: rgba(67, 173, 192, 0.1);
-}
-
-.slide_menu i {
-  /* background: blue; */
-  align-items: center;
-  justify-content: center;
-}
-
-a {
-  text-decoration: none;
-}
-
 .bars {
-  cursor: pointer;
+  display: flex;
+  font-size: 25px;
+  margin-left: 50px;
 }
-.bars:hover {
-  background: rgba(67, 173, 192, 0.1);
+.link {
+  display: flex;
+  color: rgb(64, 152, 155);
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+}
+.link:hover {
+  background: rgb(145, 238, 233);
+  color: #000;
+  border-right: 4px solid rgb(16, 134, 170);
+  transition: all 0.5s;
+}
+.active {
+  background: rgb(176, 211, 233);
+  color: #000;
+}
+.icon,
+.link_text {
+  font-size: 20px;
 }
