@@ -1,10 +1,21 @@
 import "./Member.css";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { FaRegAddressCard } from "react-icons/fa";
+import { GrCurrency } from "react-icons/gr";
+// import { ImCross } from "react-icons/im";
+// import { MdCloudDone } from "react-icons/md";
 import React, { useState } from "react";
 
 function Member() {
+  // upload image function
   const [file, setFile] = useState([]);
+  const [noticeMsg, setNoticeMsg] = useState(null);
+  const handleNoticeMsg = () => {
+    setNoticeMsg("✔ Member Added Successfully");
+    setTimeout(() => {
+      setNoticeMsg(null);
+    }, 1500);
+  };
 
   function uploadSingleFile(e) {
     let ImagesArray = Object.entries(e.target.files).map((e) =>
@@ -25,6 +36,32 @@ function Member() {
     setFile(s);
     console.log(s);
   }
+  // payment month and year
+  const monthObj = {
+    1: "January",
+    2: "February",
+    3: "March",
+    4: "April",
+    5: "May",
+    6: "June",
+    7: "July",
+    8: "August",
+    9: "September",
+    10: "October",
+    11: "November",
+    12: "December",
+  };
+  const date = new Date();
+  let yearOfSub = date.getFullYear();
+  let monthOfSub = date.getMonth() + 1;
+  let strMonth = monthOfSub.toString();
+  let monthName = monthObj[strMonth];
+
+  let subDateInfo = [monthName, yearOfSub].join("-");
+  // clear form field
+  const clearField = () => {
+    document.getElementById("memberRegistration").reset();
+  };
 
   return (
     <>
@@ -76,7 +113,11 @@ function Member() {
               About Member
               <hr />
             </h4>
-            <form action="" className="member-regi-form">
+            <form
+              action=""
+              className="member-regi-form"
+              id="memberRegistration"
+            >
               <div className="rapper">
                 <div>
                   <div> Catagory</div>
@@ -144,7 +185,10 @@ function Member() {
                 </div>
               </div>
               <div className="member-ispaid-checkbox">
-                <input type="checkbox" id="ispaid-checkbox" /> is paid
+                <span style={{ whiteSpace: "nowrap" }}>
+                  <input type="checkbox" id="ispaid-checkbox" />{" "}
+                  <label htmlFor="">is paid</label>
+                </span>
               </div>
 
               <div className="member-personal-information">
@@ -153,8 +197,9 @@ function Member() {
                     <FaRegAddressCard />
                   </i>{" "}
                   Personal Info & Address
+                  <hr />
                 </h4>
-                <hr />
+
                 <div className="rapper">
                   <div>
                     <div>First Name (English)</div>
@@ -167,8 +212,8 @@ function Member() {
                   </div>
 
                   <div>
-                    <div>Fullname (Other Lang.)</div>
-                    <input type="text" placeholder="Fullname" />
+                    <div>Full Name (Other Lang.)</div>
+                    <input type="text" placeholder="Full Name" />
                   </div>
                 </div>
 
@@ -185,7 +230,7 @@ function Member() {
 
                   <div>
                     <div>Gender</div>
-                    <input type="text" placeholder="Gender" />
+                    <input type="text" placeholder="Gender" id="gender-list" />
                   </div>
                 </div>
 
@@ -252,8 +297,49 @@ function Member() {
                   </div>
                 </div>
               </div>
+              <div className="payment-info">
+                <h4>
+                  <i>
+                    <GrCurrency />
+                  </i>{" "}
+                  Payment
+                </h4>
+                <hr />
+
+                <div className="payment-section">
+                  <div className="member-subscription">
+                    <span style={{ whiteSpace: "nowrap" }}>
+                      <input type="checkbox" />{" "}
+                      <label htmlFor="">
+                        Pay Subscription Fee- 10 Taka for
+                        {" " + subDateInfo}
+                      </label>
+                    </span>
+                  </div>
+
+                  <div className="regi-fee">
+                    <span style={{ whiteSpace: "nowrap" }}>
+                      <input type="checkbox" />
+                      <label htmlFor=""> Pay Registration Fee- 50 Taka</label>
+                    </span>
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
+        </div>
+
+        <hr />
+
+        <div className="member-regi-button">
+          <p>{noticeMsg}</p>
+
+          <button type="submit" onClick={handleNoticeMsg}>
+            Save Changes
+          </button>
+          <button type="reset" onClick={clearField}>
+            Reset
+          </button>
         </div>
       </div>
     </>

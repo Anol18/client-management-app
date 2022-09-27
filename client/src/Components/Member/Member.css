@@ -1,10 +1,12 @@
-.member-container {
+.member-container .inner-member-container input::placeholder {
+  font-size: 12px;
 }
 .member-top-header {
   position: -webkit-sticky;
   position: sticky;
-  /* top: 20px; */
-  top: 0px;
+  top: 20px;
+  /* top: 0px; */
+  /* background-color: aqua; */
 
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -13,7 +15,7 @@
   text-align: center;
 }
 .inner-member-container {
-  margin-top: 5px;
+  margin-top: 25px;
 }
 /* image preview */
 .preview {
@@ -82,7 +84,7 @@
   outline: none;
   border: 1px solid rgb(158, 157, 157);
   border-radius: 5px;
-  background-image: linear-gradient(white, rgb(228, 228, 228));
+  background-image: linear-gradient(white, rgb(238, 249, 252));
 }
 .member-regi-form input[type="date"] {
   padding-right: 100px;
@@ -91,6 +93,7 @@
   margin-top: 20px;
 }
 .rapper {
+  font-size: 13px;
   display: flex;
   margin-top: 20px;
 
@@ -121,5 +124,57 @@ h4 i {
   outline: none;
   border: 1px solid rgb(158, 157, 157);
   border-radius: 5px;
-  background-image: linear-gradient(white, rgb(228, 228, 228));
+  background-image: linear-gradient(white, rgb(238, 249, 252));
+}
+
+/* paymeny section */
+.payment-section {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+/* form button  */
+
+.member-container .member-regi-button button {
+  margin: 10px 0 50px 15px;
+  padding: 9px;
+  float: right;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.member-container .member-regi-button button[type="reset"] {
+  background-color: rgb(129, 129, 129);
+  color: var(--light);
+}
+.member-container .member-regi-button button[type="submit"] {
+  /* background-color: var(--button-color); */
+  background-color: #7fb32e;
+  color: var(--light);
+}
+/* hover effect */
+.member-container .member-regi-button button[type="submit"]:hover {
+}
+
+.member-container .member-regi-button button[type="reset"]:hover {
+}
+
+.member-container .member-regi-button p {
+  height: 5px;
+  margin-top: 20px;
+}
+
+/* after click effect */
+.member-container .member-regi-button button[type="submit"]:active {
+  /* background-color: var(--button-color); */
+  background-color: #7fb32e;
+  box-shadow: 0 2px #7fb32e;
+  transform: translateY(2px);
+}
+
+.member-container .member-regi-button button[type="reset"]:active {
+  background-color: rgb(150, 150, 150);
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
 }

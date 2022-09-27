@@ -19,6 +19,13 @@ const Sidebar = ({ children }) => {
       path: "/Members",
       name: "Members",
       icon: <FaUserAlt />,
+      subMenu: [
+        {
+          path: "/Members",
+          name: "Members",
+          icon: <FaUserAlt />,
+        },
+      ],
     },
     {
       path: "/security",
