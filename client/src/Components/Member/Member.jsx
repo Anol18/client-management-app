@@ -5,18 +5,70 @@ import { GrCurrency } from "react-icons/gr";
 // import { ImCross } from "react-icons/im";
 // import { MdCloudDone } from "react-icons/md";
 import React, { useState } from "react";
+import Axios from "axios";
 
 function Member() {
-  // upload image function
-  const [file, setFile] = useState([]);
-  const [noticeMsg, setNoticeMsg] = useState(null);
-  const handleNoticeMsg = () => {
-    setNoticeMsg("✔ Member Added Successfully");
+  // using state for input data capture
+  const initialObj = {
+    catagory: "",
+    factory: "",
+    union: "",
+    joiningdate: "",
+    factoryjoindate: "",
+    uniondesignation: "",
+    department: "",
+    factoryid: "",
+    factorydesignation: "",
+    wpcdesignation: "",
+    oshcommiteedesignation: "",
+    memberstatus: "",
+    ispaid: "",
+    fname: "",
+    lname: "",
+    fullname: "",
+    fathername: "",
+    mothername: "",
+    gender: "",
+    birthday: "",
+    spousename: "",
+    bloodgroup: "",
+    nid: "",
+    mobilenum: "",
+    education: "",
+    religion: "",
+    presentaddress: "",
+    parmanentaddress: "",
+    subscriptionpayment: "",
+    regifee: "",
+  };
+  const [file, setFile] = useState([]); // imageupload useState
+  const [memberInputData, setMemberInputData] = useState(initialObj); //input useState
+  const [noticeMsg, setNoticeMsg] = useState(null); //success message useState
+
+  // input onchange function
+  const handleOnChangeInput = (event) => {
+    setMemberInputData({
+      ...memberInputData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  // handle submit buttion
+  const handleSubmit = (event) => {
     setTimeout(() => {
       setNoticeMsg(null);
     }, 1500);
+
+    Axios.post("http://localhost:3001/api/Member", memberInputData).then(() => {
+      setNoticeMsg("✔ Member Added Successfully");
+    });
+    event.preventDefault();
+    console.log(memberInputData);
+    setMemberInputData(initialObj);
+    clearField();
   };
 
+  // upload image function
   function uploadSingleFile(e) {
     let ImagesArray = Object.entries(e.target.files).map((e) =>
       URL.createObjectURL(e[1])
@@ -56,8 +108,8 @@ function Member() {
   let monthOfSub = date.getMonth() + 1;
   let strMonth = monthOfSub.toString();
   let monthName = monthObj[strMonth];
-
   let subDateInfo = [monthName, yearOfSub].join("-");
+
   // clear form field
   const clearField = () => {
     document.getElementById("memberRegistration").reset();
@@ -121,72 +173,135 @@ function Member() {
               <div className="rapper">
                 <div>
                   <div> Catagory</div>
-                  <input type="text" placeholder="Catagory" />
+                  <input
+                    type="text"
+                    placeholder="Catagory"
+                    name="catagory"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
 
                 <div>
                   <div>Factory</div>
-                  <input type="text" placeholder="Factory" />
+                  <input
+                    type="text"
+                    placeholder="Factory"
+                    name="factory"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
 
                 <div>
                   <div>Union</div>
-                  <input type="text" placeholder="Union" />
+                  <input
+                    type="text"
+                    placeholder="Union"
+                    name="union"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
               </div>
               <div className="rapper">
                 <div>
                   <div>Joining Date</div>
-                  <input type="date" />
+                  <input
+                    type="date"
+                    name="joiningdate"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
 
                 <div>
                   <div>Factory Join Date</div>
-                  <input type="date" />
+                  <input
+                    type="date"
+                    name="factoryjoindate"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
 
                 <div>
                   <div>Union Designation</div>
-                  <input type="text" placeholder="Union Designation" />
+                  <input
+                    type="text"
+                    placeholder="Union Designation"
+                    name="uniondesignation"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
               </div>
 
               <div className="rapper">
                 <div>
                   <div>Department</div>
-                  <input type="text" placeholder="Department" />
+                  <input
+                    type="text"
+                    placeholder="Department"
+                    name="department"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
 
                 <div>
                   <div>Factory ID No</div>
-                  <input type="text" placeholder="Factory ID No" />
+                  <input
+                    type="text"
+                    placeholder="Factory ID No"
+                    name="factoryid"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
 
                 <div>
                   <div>Factory Designation</div>
-                  <input type="text" placeholder="Factory Designation" />
+                  <input
+                    type="text"
+                    placeholder="Factory Designation"
+                    name="factorydesignation"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
               </div>
 
               <div className="rapper">
                 <div>
                   <div>WPC Designation</div>
-                  <input type="text" placeholder="WPC Designation" />
+                  <input
+                    type="text"
+                    placeholder="WPC Designation"
+                    name="wpcdesignation"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
 
                 <div>
                   <div>OSH Commitee Designation</div>
-                  <input type="text" placeholder="OSH Commitee Designation" />
+                  <input
+                    type="text"
+                    placeholder="OSH Commitee Designation"
+                    name="oshcommiteedesignation"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
 
                 <div>
-                  <div>OSH Commitee Designation</div>
-                  <input type="text" placeholder="Membership Status *" />
+                  <div>Member Status</div>
+                  <input
+                    type="text"
+                    placeholder="Membership Status"
+                    name="memberstatus"
+                    onChange={handleOnChangeInput}
+                  />
                 </div>
               </div>
               <div className="member-ispaid-checkbox">
                 <span style={{ whiteSpace: "nowrap" }}>
-                  <input type="checkbox" id="ispaid-checkbox" />{" "}
+                  <input
+                    type="checkbox"
+                    id="ispaid-checkbox"
+                    name="ispaid"
+                    onChange={handleOnChangeInput}
+                  />{" "}
                   <label htmlFor="">is paid</label>
                 </span>
               </div>
@@ -203,85 +318,152 @@ function Member() {
                 <div className="rapper">
                   <div>
                     <div>First Name (English)</div>
-                    <input type="text" placeholder="First Name" required />
+                    <input
+                      type="text"
+                      placeholder="First Name"
+                      name="fname"
+                      onChange={handleOnChangeInput}
+                      required
+                    />
                   </div>
 
                   <div>
                     <div>Last Name (English)</div>
-                    <input type="text" placeholder="Last Name" />
+                    <input
+                      type="text"
+                      placeholder="Last Name"
+                      name="lname"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
 
                   <div>
                     <div>Full Name (Other Lang.)</div>
-                    <input type="text" placeholder="Full Name" />
+                    <input
+                      type="text"
+                      placeholder="Full Name"
+                      name="fullname"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
                 </div>
 
                 <div className="rapper">
                   <div>
                     <div>Father Name</div>
-                    <input type="text" placeholder="Father Name" />
+                    <input
+                      type="text"
+                      placeholder="Father Name"
+                      name="fathername"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
 
                   <div>
                     <div>Mother Name</div>
-                    <input type="text" placeholder="Mother Name" />
+                    <input
+                      type="text"
+                      placeholder="Mother Name"
+                      name="mothername"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
 
                   <div>
                     <div>Gender</div>
-                    <input type="text" placeholder="Gender" id="gender-list" />
+                    <input
+                      type="text"
+                      placeholder="Gender"
+                      id="gender-list"
+                      name="gender"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
                 </div>
 
                 <div className="rapper">
                   <div>
                     <div>Date Of Birth</div>
-                    <input type="date" />
+                    <input
+                      type="date"
+                      name="birthday"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
 
                   <div>
                     <div>Spouse Name</div>
-                    <input type="text" placeholder="Spouse Name" />
+                    <input
+                      type="text"
+                      placeholder="Spouse Name"
+                      name="spousename"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
 
                   <div>
                     <div>Blood Group</div>
-                    <input type="text" placeholder="Blood Group" />
+                    <input
+                      type="text"
+                      placeholder="Blood Group"
+                      name="bloodgroup"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
                 </div>
 
                 <div className="rapper">
                   <div>
                     <div>NID</div>
-                    <input type="text" placeholder="NID" />
+                    <input
+                      type="text"
+                      placeholder="NID"
+                      name="nid"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
 
                   <div>
                     <div>Mobile No</div>
-                    <input type="text" placeholder="Mobile No" />
+                    <input
+                      type="text"
+                      placeholder="Mobile No"
+                      name="mobilenum"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
 
                   <div>
                     <div>Education</div>
-                    <input type="text" placeholder="Education" />
+                    <input
+                      type="text"
+                      placeholder="Education"
+                      name="education"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
                 </div>
 
                 <div className="rapper">
                   <div>
                     <div>Religion</div>
-                    <input type="text" placeholder="Religion" />
+                    <input
+                      type="text"
+                      placeholder="Religion"
+                      name="religion"
+                      onChange={handleOnChangeInput}
+                    />
                   </div>
 
                   <div>
                     <div>Present Address</div>
                     <textarea
                       id=""
-                      name=""
+                      name="presentaddress"
                       rows="4"
                       cols="26"
                       placeholder="Present Adress"
+                      onChange={handleOnChangeInput}
                     ></textarea>
                   </div>
 
@@ -289,10 +471,11 @@ function Member() {
                     <div>Permanent Address</div>
                     <textarea
                       id=""
-                      name=""
+                      name="parmanentaddress"
                       rows="4"
                       cols="26"
                       placeholder="Permanent Address"
+                      onChange={handleOnChangeInput}
                     ></textarea>
                   </div>
                 </div>
@@ -309,7 +492,11 @@ function Member() {
                 <div className="payment-section">
                   <div className="member-subscription">
                     <span style={{ whiteSpace: "nowrap" }}>
-                      <input type="checkbox" />{" "}
+                      <input
+                        type="checkbox"
+                        name="subscriptionpayment"
+                        onChange={handleOnChangeInput}
+                      />{" "}
                       <label htmlFor="">
                         Pay Subscription Fee- 10 Taka for
                         {" " + subDateInfo}
@@ -319,7 +506,11 @@ function Member() {
 
                   <div className="regi-fee">
                     <span style={{ whiteSpace: "nowrap" }}>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        name="regifee"
+                        onChange={handleOnChangeInput}
+                      />
                       <label htmlFor=""> Pay Registration Fee- 50 Taka</label>
                     </span>
                   </div>
@@ -334,7 +525,7 @@ function Member() {
         <div className="member-regi-button">
           <p>{noticeMsg}</p>
 
-          <button type="submit" onClick={handleNoticeMsg}>
+          <button type="submit" onClick={handleSubmit}>
             Save Changes
           </button>
           <button type="reset" onClick={clearField}>
