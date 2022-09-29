@@ -2,11 +2,8 @@ import "./Member.css";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { FaRegAddressCard } from "react-icons/fa";
 import { GrCurrency } from "react-icons/gr";
-// import { ImCross } from "react-icons/im";
-// import { MdCloudDone } from "react-icons/md";
 import React, { useState } from "react";
 import Axios from "axios";
-
 function Member() {
   // using state for input data capture
   const initialObj = {
@@ -44,6 +41,7 @@ function Member() {
   const [file, setFile] = useState([]); // imageupload useState
   const [memberInputData, setMemberInputData] = useState(initialObj); //input useState
   const [noticeMsg, setNoticeMsg] = useState(null); //success message useState
+  // const [employeeList, setEmployeeList] = useState([]);
 
   // input onchange function
   const handleOnChangeInput = (event) => {
@@ -55,12 +53,44 @@ function Member() {
 
   // handle submit buttion
   const handleSubmit = (event) => {
+    setNoticeMsg("✔ Member Added Successfully");
     setTimeout(() => {
       setNoticeMsg(null);
     }, 1500);
+    Axios.post("http://localhost:5000/api/memberadd", {
+      catagory: memberInputData.catagory,
+      factory: memberInputData.factory,
+      union: memberInputData.union,
+      joiningdate: memberInputData.joiningdate,
+      factoryjoindate: memberInputData.factoryjoindate,
+      uniondesignation: memberInputData.uniondesignation,
+      department: memberInputData.department,
+      factoryid: memberInputData.factoryid,
+      factorydesignation: memberInputData.factorydesignation,
 
-    Axios.post("http://localhost:3001/api/Member", memberInputData).then(() => {
-      setNoticeMsg("✔ Member Added Successfully");
+      wpcdesignation: memberInputData.wpcdesignation,
+      oshcommiteedesignation: memberInputData.oshcommiteedesignation,
+      memberstatus: memberInputData.memberstatus,
+      ispaid: memberInputData.ispaid,
+      fname: memberInputData.fname,
+      lname: memberInputData.lname,
+      fullname: memberInputData.fullname,
+      fathername: memberInputData.fathername,
+      mothername: memberInputData.mothername,
+
+      gender: memberInputData.gender,
+      birthday: memberInputData.birthday,
+      spousename: memberInputData.spousename,
+      bloodgroup: memberInputData.bloodgroup,
+      nid: memberInputData.nid,
+      mobilenum: memberInputData.mobilenum,
+      education: memberInputData.education,
+      religion: memberInputData.religion,
+
+      presentaddress: memberInputData.presentaddress,
+      parmanentaddress: memberInputData.parmanentaddress,
+      subscriptionpayment: memberInputData.subscriptionpayment,
+      regifee: memberInputData.regifee,
     });
     event.preventDefault();
     console.log(memberInputData);
@@ -323,7 +353,6 @@ function Member() {
                       placeholder="First Name"
                       name="fname"
                       onChange={handleOnChangeInput}
-                      required
                     />
                   </div>
 
