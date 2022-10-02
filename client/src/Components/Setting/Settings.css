@@ -1,9 +1,15 @@
-.setting-container h1 {
-  margin-left: 500px;
+main2 {
+  width: 50%;
 }
-.setting-container h1 {
-  font-size: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.setting-link_text {
+  color: var(--dark);
+}
+.setting-sidebar {
+}
+.setting-link_text:hover {
+  background-color: azure;
+}
+.setting-link_text:active {
+  background-color: aliceblue;
 }

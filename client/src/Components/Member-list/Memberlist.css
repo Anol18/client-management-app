@@ -1,22 +1,28 @@
-.member-title-item table {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.member-title-item table span {
-}
-.member-title-item table tr th {
-  font-size: 16px;
-  font-weight: 400;
-}
-.member-list-data table {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.member-list-data table tr td {
-  font-family: "Times New Roman", Times, serif;
+/* members list table */
+.member-list-table table {
+  width: 100%;
+  background-color: rgb(207, 207, 207);
   font-size: 12px;
+}
+.member-list-table table tr {
+  background-color: rgb(255, 255, 255);
   align-items: center;
-  font-weight: lighter;
+  justify-content: space-around;
+}
+.member-list-table table tr th {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-list-table table tr td {
+  background-color: rgb(255, 255, 255);
+}
+.member-list-table table tr .list-photo {
+  width: 80px;
+  height: 50px;
+  /* background-color: aquamarine; */
+}
+.member-list-table table tr .active_deactive {
+  border-radius: 2px;
 }

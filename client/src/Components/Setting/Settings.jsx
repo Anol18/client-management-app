@@ -1,12 +1,14 @@
 import React from "react";
+import { GrSidebar } from "react-icons/gr";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Education from "../Education/Education";
+import SettingSidebar from "../SettingSidebar/SettingSidebar";
+import Sidebar from "../Sidebar/Sidebar";
 import "./Settings.css";
 function Setting() {
   return (
     <>
-      <div className="setting-container">
-        <h1>Testing</h1>
-      
-      </div>
+      <SettingSidebar></SettingSidebar>
     </>
   );
 }

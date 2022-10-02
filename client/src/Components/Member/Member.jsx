@@ -158,10 +158,10 @@ function Member() {
             >
               <div className="rapper">
                 <div>
-                  <div> Catagory</div>
+                  <div> Category</div>
                   <input
                     type="text"
-                    placeholder="Catagory"
+                    placeholder="Category"
                     name="catagory"
                     onChange={handleOnChangeInput}
                     onKeyDown={handleEnter}
@@ -283,13 +283,16 @@ function Member() {
 
                 <div>
                   <div>Member Status</div>
-                  <input
-                    type="text"
-                    placeholder="Membership Status"
+                  <select
                     name="memberstatus"
                     onChange={handleOnChangeInput}
                     onKeyDown={handleEnter}
-                  />
+                  >
+                    <option value="">Select One</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                    <option value="Blocked">Blocked</option>
+                  </select>
                 </div>
               </div>
               <div className="member-ispaid-checkbox">
@@ -374,14 +377,18 @@ function Member() {
 
                   <div>
                     <div>Gender</div>
-                    <input
-                      type="text"
-                      placeholder="Gender"
+                    <select
                       id="gender-list"
                       name="gender"
                       onChange={handleOnChangeInput}
                       onKeyDown={handleEnter}
-                    />
+                    >
+                      <option value="">Select One</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                      <option value="Unknown">Unknown</option>
+                    </select>
                   </div>
                 </div>
 
@@ -409,13 +416,21 @@ function Member() {
 
                   <div>
                     <div>Blood Group</div>
-                    <input
-                      type="text"
-                      placeholder="Blood Group"
+                    <select
                       name="bloodgroup"
                       onChange={handleOnChangeInput}
                       onKeyDown={handleEnter}
-                    />
+                    >
+                      <option value="">Select One</option>
+                      <option value="A+">A+</option>
+                      <option value="A-">A-</option>
+                      <option value="B+">B+</option>
+                      <option value="B-">B-</option>
+                      <option value="O+">O+</option>
+                      <option value="O-">O-</option>
+                      <option value="AB+">AB+</option>
+                      <option value="AB-">AB-</option>
+                    </select>
                   </div>
                 </div>
 

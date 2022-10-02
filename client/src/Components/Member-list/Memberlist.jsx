@@ -1,6 +1,6 @@
 import "./Memberlist.css";
 import { MdDelete } from "react-icons/md";
-import { GrDocumentUpdate } from "react-icons/gr";
+import { GrDocumentUpdate, GrEmergency } from "react-icons/gr";
 import { useEffect, useState } from "react";
 
 function Memberlist() {
@@ -14,158 +14,130 @@ function Memberlist() {
     };
     getData();
   }, []);
+
+  const memberStatusFunc = (m_status) => {
+    const activeColor = {
+      color: "white",
+      background: "#28d094",
+    };
+    const inactiveColor = {
+      color: "white",
+      background: "yellow",
+    };
+    const blockedColor = {
+      color: "white",
+      background: "rgb(255, 30, 30)",
+    };
+
+    if (m_status === "Active") {
+      return activeColor;
+    } else if (m_status === "Inactive") {
+      return inactiveColor;
+    } else if (m_status === "Blocked") {
+      return blockedColor;
+    }
+  };
+
   return (
     <>
-      <div className="memberlist-container">
-        <div className="member-list-header">
-          <h3>Member List</h3>
-          <div className="member-title-item">
-            <table>
-              <tr>
-                <th>#SL</th>
+      <div className="member-list-table">
+        <table>
+          <tr>
+            <th>#SL</th>
+
+            <th className="list-photo">Photo</th>
+
+            <th>Member ID</th>
+            <th>NID No</th>
+            <th>Reg No</th>
+
+            <th>
+              Full Name
+              <br />
+              Father Name
+              <br />
+              Mother Name
+            </th>
+
+            <th>
+              DOB
+              <br />
+              Religion
+              <br />
+              Gender
+            </th>
+
+            <th>
+              Mobile
+              <br />
+              Blood G.
+            </th>
+            <th>
+              Union
+              <br />
+              Factory
+              <br />
+              Department
+            </th>
+
+            <th>Status</th>
+            <th>Option</th>
+          </tr>
+          {/* member list values */}
+          {catagory.map((value) => {
+            return (
+              <tr key={value.id}>
+                <td align="center">{value.id}</td>
+                <td align="center" className="list-photo">
+                  Photo
+                </td>
+                <td>Member ID</td>
+                <td>{value.nid}</td>
+
+                <td> Reg ID</td>
+
+                <td>
+                  {value.full_name}
+                  <br />
+                  {value.father_name}
+                  <br />
+                  {value.mother_name}
+                </td>
+
+                <td>
+                  {value.date_of_birth}
+                  <br />
+                  {value.religion}
+                  <br />
+                  {value.gender}
+                </td>
+
+                <td>
+                  {value.mobile_number}
+                  <br />
+                  {value.blood_group}
+                </td>
+
+                <td>
+                  {value.m_union}
+                  <br />
+                  {value.factory}
+                  <br />
+                  {value.department}
+                </td>
+                <td align="center">
+                  <span
+                    className="active_deactive"
+                    style={memberStatusFunc(value.membership_status)}
+                  >
+                    {value.membership_status}
+                  </span>
+                </td>
+                <td align="center">X X X</td>
               </tr>
-
-              <tr>
-                <th>Photo</th>
-              </tr>
-
-              <tr>
-                <th>
-                  Member ID <br /> NID No <br />
-                  Reg No
-                </th>
-              </tr>
-
-              <tr>
-                <th>
-                  Full Name <br />
-                  Father Name <br />
-                  Mother Name
-                </th>
-              </tr>
-
-              <tr>
-                <th>
-                  DOB <br /> Religion <br />
-                  Gender
-                </th>
-              </tr>
-
-              <tr>
-                <th>
-                  Mobile <br />
-                  Blood G.
-                </th>
-              </tr>
-
-              <tr>
-                <th>
-                  Union <br />
-                  Factory <br />
-                  Department
-                </th>
-              </tr>
-
-              <tr>
-                <th>Status</th>
-              </tr>
-
-              <tr>
-                <th>Option</th>
-              </tr>
-            </table>
-            <hr />
-          </div>
-        </div>
-
-        {catagory.map((value) => {
-          return (
-            <>
-              <div className="member-list-data">
-                <table key={value.id}>
-                  <tr>
-                    <tr>
-                      <td>{value.id}</td>
-                    </tr>
-                  </tr>
-
-                  <tr>
-                    <tr>
-                      <td> Photo</td>
-                    </tr>
-                  </tr>
-
-                  <tr>
-                    <tr>
-                      <td>
-                        Member ID <br /> {value.nid} <br />
-                        Reg No
-                      </td>
-                    </tr>
-                  </tr>
-
-                  <tr>
-                    <tr>
-                      <td>
-                        {value.full_name} <br />
-                        {value.father_name} <br />
-                        {value.mother_name}
-                      </td>
-                    </tr>
-                  </tr>
-
-                  <tr>
-                    <tr>
-                      <td>
-                        {value.date_of_birth} <br /> {value.religion} <br />
-                        {value.gender}
-                      </td>
-                    </tr>
-                  </tr>
-
-                  <tr>
-                    <tr>
-                      <td>
-                        {value.mobile_number} <br />
-                        {value.blood_group}
-                      </td>
-                    </tr>
-                  </tr>
-
-                  <tr>
-                    <tr>
-                      <td>
-                        {value.m_union} <br />
-                        {value.factory} <br />
-                        {value.department}
-                      </td>
-                    </tr>
-                  </tr>
-
-                  <tr>
-                    <tr>
-                      {" "}
-                      <td>Status</td>
-                    </tr>
-                  </tr>
-
-                  <tr>
-                    <tr>
-                      {" "}
-                      <td>
-                        <GrDocumentUpdate />
-                      </td>
-                      <td>
-                        <MdDelete />
-                      </td>
-                      <td>Option</td>
-                    </tr>
-                  </tr>
-                </table>
-              </div>
-            </>
-          );
-        })}
+            );
+          })}
+        </table>
       </div>
     </>
   );
