@@ -38,7 +38,7 @@ function Member() {
     subscriptionpayment: "",
     regifee: "",
   };
-  const [file, setFile] = useState([]); // imageupload useState
+  // const [file, setFile] = useState([]);  //imageupload useState
   const [memberInputData, setMemberInputData] = useState(initialObj); //input useState
   const [noticeMsg, setNoticeMsg] = useState(null); //success message useState
   // const [employeeList, setEmployeeList] = useState([]);
@@ -50,13 +50,27 @@ function Member() {
       [event.target.name]: event.target.value,
     });
   };
-
+  const handleEnter = (event) => {
+    if (event.key === "Enter") {
+      const form = document.getElementById("memberRegistration");
+      const index = [...form].indexOf(event.target);
+      form.elements[index + 1].focus();
+      event.preventDefault();
+    }
+  };
   // handle submit buttion
   const handleSubmit = (event) => {
     setNoticeMsg("✔ Member Added Successfully");
     setTimeout(() => {
       setNoticeMsg(null);
+      window.scrollTo({
+        top: -0,
+        behavior: "smooth",
+      });
+      // window.scrollBy(0, -10000);
     }, 1500);
+
+    // axios api reques to server
     Axios.post("http://localhost:5000/api/memberadd", {
       catagory: memberInputData.catagory,
       factory: memberInputData.factory,
@@ -98,26 +112,6 @@ function Member() {
     clearField();
   };
 
-  // upload image function
-  function uploadSingleFile(e) {
-    let ImagesArray = Object.entries(e.target.files).map((e) =>
-      URL.createObjectURL(e[1])
-    );
-    console.log(ImagesArray);
-    setFile([...file, ...ImagesArray]);
-    console.log("file", file);
-  }
-
-  function upload(e) {
-    e.preventDefault();
-    console.log(file);
-  }
-
-  function deleteFile(e) {
-    const s = file.filter((item, index) => index !== e);
-    setFile(s);
-    console.log(s);
-  }
   // payment month and year
   const monthObj = {
     1: "January",
@@ -148,45 +142,7 @@ function Member() {
   return (
     <>
       <div className="member-container">
-        <div className="member-top-header">
-          <h2>Membership information</h2>
-          <hr />
-        </div>
         <div className="inner-member-container">
-          <form>
-            <div className="form-group preview">
-              {file.length > 0 &&
-                file.map((item, index) => {
-                  return (
-                    <div key={item}>
-                      <img src={item} alt="" />
-                      <button type="button" onClick={() => deleteFile(index)}>
-                        Delete
-                      </button>
-                    </div>
-                  );
-                })}
-            </div>
-
-            <div className="form-group">
-              <input
-                type="file"
-                disabled={file.length === 5}
-                className="form-control"
-                onChange={uploadSingleFile}
-                multiple
-              />
-            </div>
-            <button
-              type="button"
-              className="btn btn-primary btn-block"
-              onClick={upload}
-            >
-              Upload
-            </button>
-          </form>
-
-          {/* About memeber information */}
           <div className="member-input-info">
             <h4>
               <i>
@@ -208,6 +164,7 @@ function Member() {
                     placeholder="Catagory"
                     name="catagory"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
 
@@ -218,6 +175,7 @@ function Member() {
                     placeholder="Factory"
                     name="factory"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
 
@@ -228,6 +186,7 @@ function Member() {
                     placeholder="Union"
                     name="union"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
               </div>
@@ -238,6 +197,7 @@ function Member() {
                     type="date"
                     name="joiningdate"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
 
@@ -247,6 +207,7 @@ function Member() {
                     type="date"
                     name="factoryjoindate"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
 
@@ -257,6 +218,7 @@ function Member() {
                     placeholder="Union Designation"
                     name="uniondesignation"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
               </div>
@@ -269,6 +231,7 @@ function Member() {
                     placeholder="Department"
                     name="department"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
 
@@ -279,6 +242,7 @@ function Member() {
                     placeholder="Factory ID No"
                     name="factoryid"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
 
@@ -289,6 +253,7 @@ function Member() {
                     placeholder="Factory Designation"
                     name="factorydesignation"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
               </div>
@@ -301,6 +266,7 @@ function Member() {
                     placeholder="WPC Designation"
                     name="wpcdesignation"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
 
@@ -311,6 +277,7 @@ function Member() {
                     placeholder="OSH Commitee Designation"
                     name="oshcommiteedesignation"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
 
@@ -321,6 +288,7 @@ function Member() {
                     placeholder="Membership Status"
                     name="memberstatus"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />
                 </div>
               </div>
@@ -331,6 +299,7 @@ function Member() {
                     id="ispaid-checkbox"
                     name="ispaid"
                     onChange={handleOnChangeInput}
+                    onKeyDown={handleEnter}
                   />{" "}
                   <label htmlFor="">is paid</label>
                 </span>
@@ -353,6 +322,7 @@ function Member() {
                       placeholder="First Name"
                       name="fname"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
 
@@ -363,6 +333,7 @@ function Member() {
                       placeholder="Last Name"
                       name="lname"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
 
@@ -373,6 +344,7 @@ function Member() {
                       placeholder="Full Name"
                       name="fullname"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
                 </div>
@@ -385,6 +357,7 @@ function Member() {
                       placeholder="Father Name"
                       name="fathername"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
 
@@ -395,6 +368,7 @@ function Member() {
                       placeholder="Mother Name"
                       name="mothername"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
 
@@ -406,6 +380,7 @@ function Member() {
                       id="gender-list"
                       name="gender"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
                 </div>
@@ -417,6 +392,7 @@ function Member() {
                       type="date"
                       name="birthday"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
 
@@ -427,6 +403,7 @@ function Member() {
                       placeholder="Spouse Name"
                       name="spousename"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
 
@@ -437,6 +414,7 @@ function Member() {
                       placeholder="Blood Group"
                       name="bloodgroup"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
                 </div>
@@ -449,6 +427,7 @@ function Member() {
                       placeholder="NID"
                       name="nid"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
 
@@ -459,6 +438,7 @@ function Member() {
                       placeholder="Mobile No"
                       name="mobilenum"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
 
@@ -469,6 +449,7 @@ function Member() {
                       placeholder="Education"
                       name="education"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
                 </div>
@@ -481,6 +462,7 @@ function Member() {
                       placeholder="Religion"
                       name="religion"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     />
                   </div>
 
@@ -493,6 +475,7 @@ function Member() {
                       cols="26"
                       placeholder="Present Adress"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     ></textarea>
                   </div>
 
@@ -505,6 +488,7 @@ function Member() {
                       cols="26"
                       placeholder="Permanent Address"
                       onChange={handleOnChangeInput}
+                      onKeyDown={handleEnter}
                     ></textarea>
                   </div>
                 </div>
@@ -525,6 +509,7 @@ function Member() {
                         type="checkbox"
                         name="subscriptionpayment"
                         onChange={handleOnChangeInput}
+                        onKeyDown={handleEnter}
                       />{" "}
                       <label htmlFor="">
                         Pay Subscription Fee- 10 Taka for
@@ -539,6 +524,7 @@ function Member() {
                         type="checkbox"
                         name="regifee"
                         onChange={handleOnChangeInput}
+                        onKeyDown={handleEnter}
                       />
                       <label htmlFor=""> Pay Registration Fee- 50 Taka</label>
                     </span>

@@ -37,6 +37,12 @@ const Sidebar = ({ children }) => {
       name: "Accounts",
       icon: <MdPayments />,
     },
+
+    {
+      path: "/Memberlist",
+      name: "Member List",
+      icon: <MdPayments />,
+    },
     {
       path: "/Settings",
       name: "Settings",

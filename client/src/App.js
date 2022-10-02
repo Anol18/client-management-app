@@ -13,6 +13,8 @@ import Member from "./Components/Member/Member";
 import Accounts from "./Components/Accounts/Accounts";
 // import { MdSettings } from "react-icons/md";
 import Settings from "./Components/Setting/Settings";
+import LoginNavbar from "./Components/LoginNavbar/LoginNavbar";
+import Memberlist from "./Components/Member-list/Memberlist";
 
 function App() {
   return (
@@ -22,12 +24,15 @@ function App() {
       {/* routing */}
       <BrowserRouter>
         <Sidebar>
+          <LoginNavbar />
           <Routes>
             {/* <Route path='/' element={<Login/>}/> */}
             <Route exact path="/" element={<Dashboard />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/security" element={<Security />} />
             <Route exact path="/Members" element={<Member />} />
+            <Route exact path="/Memberlist" element={<Memberlist />} />
+
             <Route exact path="/Accounts" element={<Accounts />} />
             <Route exact path="/Settings" element={<Settings />} />
           </Routes>

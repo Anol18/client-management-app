@@ -1,0 +1,22 @@
+.member-title-item table {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.member-title-item table span {
+}
+.member-title-item table tr th {
+  font-size: 16px;
+  font-weight: 400;
+}
+.member-list-data table {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.member-list-data table tr td {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+  align-items: center;
+  font-weight: lighter;
+}
