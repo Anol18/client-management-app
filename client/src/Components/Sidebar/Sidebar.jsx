@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaTh, FaBars, FaUserAlt } from "react-icons/fa";
+import { FaTh, FaBars, FaUserAlt, FaClipboardList } from "react-icons/fa";
 import { MdOutlineSecurity, MdPayments } from "react-icons/md";
 
 import { AiFillSetting } from "react-icons/ai";
@@ -41,7 +41,7 @@ const Sidebar = ({ children }) => {
     {
       path: "/Memberlist",
       name: "Member List",
-      icon: <MdPayments />,
+      icon: <FaClipboardList />,
     },
     {
       path: "/Settings",

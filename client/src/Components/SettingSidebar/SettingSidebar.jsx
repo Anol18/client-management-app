@@ -12,7 +12,6 @@ const SettingSidebar = ({ children }) => {
       path: "/education",
       name: "Education",
     },
-
     {
       path: "/religion",
       name: "Religion",

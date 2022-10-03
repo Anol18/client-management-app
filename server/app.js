@@ -111,5 +111,15 @@ app.post("/api/memberadd", (req, res) => {
       }
     }
   );
-  // db.query(sqlReset);
+});
+app.delete("/api/deletemember", (req, res) => {
+  const mid = req.body.id;
+  const sqlDelete = "DELETE FROM `membership_info` WHERE id = ?";
+  db.query(sqlDelete, mid, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  });
 });

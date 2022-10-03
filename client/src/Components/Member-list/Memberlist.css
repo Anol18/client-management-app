@@ -26,3 +26,12 @@
 .member-list-table table tr .active_deactive {
   border-radius: 2px;
 }
+.member-list-table table tr .member-list-btn {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.member-list-btn td {
+  margin-top: 18px;
+  cursor: pointer;
+}

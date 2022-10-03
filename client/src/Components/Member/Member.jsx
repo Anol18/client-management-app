@@ -341,7 +341,7 @@ function Member() {
                   </div>
 
                   <div>
-                    <div>Full Name (Other Lang.)</div>
+                    <div>Full Name (Bangla)</div>
                     <input
                       type="text"
                       placeholder="Full Name"
