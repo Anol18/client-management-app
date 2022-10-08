@@ -1,18 +1,21 @@
 import React from "react";
-import { GrSidebar } from "react-icons/gr";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Education from "../Education/Education";
-import SettingSidebar from "../SettingSidebar/SettingSidebar";
 import "./Settings.css";
-function Setting() {
+function Settings() {
   return (
     <>
-      <SettingSidebar>
-        <Route path="/education" element={<Education />} />
-      </SettingSidebar>
-      {/* <BrowserRouter></BrowserRouter> */}
+      <div className="system-button-section">
+        <button>Education</button>
+        <button>Religion</button>
+        <button>Department</button>
+        <button>Designation</button>
+        <button>Category</button>
+        <button>Union</button>
+        <button>Factory</button>
+        <button>Area</button>
+      </div>
+      <div className="system-setting-input"></div>
     </>
   );
 }
 
-export default Setting;
+export default Settings;

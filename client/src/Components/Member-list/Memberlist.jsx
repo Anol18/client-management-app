@@ -1,29 +1,40 @@
 import "./Memberlist.css";
 import { FcRefresh, FcDeleteRow, FcMoneyTransfer } from "react-icons/fc";
 import { useEffect, useState } from "react";
-import { Axios } from "axios";
+import axios from "axios";
 
 function Memberlist() {
   const [catagory, setCatagory] = useState([]);
-
+  let i = 0;
+  // fetching member data to show in table
   useEffect(() => {
     const getData = async () => {
-      const getData = await fetch("http://localhost:5000/api/get");
+      const getData = await fetch(
+        "http://localhost:5000/api/ydhw5612*iuw2/get"
+      );
       const data = await getData.json();
       setCatagory(data);
     };
     getData();
   }, [catagory]);
 
-  function handleDelete(id) {
-    Axios.delete("http://localhost:5000/api/deletemember", id);
-  }
+  // delete member list row
+  const handleDelete = async (id) => {
+    window.confirm("Are you sure want to delete?") &&
+      (await axios.delete(`http://localhost:5000/api/deletemember/${id}`));
+  };
+
+  // Member list (Subscription button)
   const handleSub = () => {
     console.log("sub");
   };
+
+  // update member information
   const handleUpdate = () => {
     console.log("updated");
   };
+
+  // Member status color function
   const memberStatusFunc = (m_status) => {
     const activeColor = {
       color: "white",
@@ -94,12 +105,14 @@ function Memberlist() {
               <th>Option</th>
             </tr>
           </thead>
+
           <tbody>
             {/* member list values */}
+
             {catagory.map((value) => {
               return (
                 <tr key={value.id}>
-                  <td align="center">{value.id}</td>
+                  <td align="center">{value.id && ++i}</td>
                   <td align="center" className="list-photo">
                     Photo
                   </td>
@@ -146,14 +159,20 @@ function Memberlist() {
                   </td>
 
                   <div className="member-list-btn">
-                    <td onClick={() => handleUpdate(console.log("updated"))}>
-                      <FcRefresh />
-                    </td>
-                    <td onClick={() => handleSub(console.log("sub"))}>
-                      <FcMoneyTransfer />
+                    <td>
+                      <button
+                        onClick={() => handleUpdate(console.log("updated"))}
+                      >
+                        <FcRefresh />
+                      </button>
                     </td>
                     <td>
-                      <button type="submit" onClick={() => handleDelete(4)}>
+                      <button onClick={() => handleSub(console.log("sub"))}>
+                        <FcMoneyTransfer />
+                      </button>
+                    </td>
+                    <td>
+                      <button onClick={() => handleDelete(value.id)}>
                         <FcDeleteRow />
                       </button>
                     </td>

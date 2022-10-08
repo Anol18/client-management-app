@@ -3,6 +3,8 @@ const mysql = require("mysql2");
 const MemberRegiModule = require("./MemberRegiServer");
 const app = express();
 const cors = require("cors");
+const { param } = require("express-validator");
+const { parse } = require("dotenv");
 // const mysql = require("mysql2");
 // const MemberRegi = require("./MemberRegiServer");
 
@@ -27,7 +29,7 @@ const db = mysql.createConnection({
   database: "dai_info_db",
 });
 // get data from mydql
-app.get("/api/get", (req, res) => {
+app.get("/api/ydhw5612*iuw2/get", (req, res) => {
   const sqlSelect = "SELECT * FROM `membership_info` WHERE 1";
   db.query(sqlSelect, (err, result) => {
     res.send(result);
@@ -112,14 +114,13 @@ app.post("/api/memberadd", (req, res) => {
     }
   );
 });
-app.delete("/api/deletemember", (req, res) => {
-  const mid = req.body.id;
+app.delete("/api/deletemember/:id", (req, res) => {
+  const mid = req.params.id;
+
   const sqlDelete = "DELETE FROM `membership_info` WHERE id = ?";
   db.query(sqlDelete, mid, (err, result) => {
     if (err) {
       console.log(err);
-    } else {
-      console.log(result);
     }
   });
 });

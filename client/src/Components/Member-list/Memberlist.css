@@ -26,6 +26,12 @@
 .member-list-table table tr .active_deactive {
   border-radius: 2px;
 }
+.member-list-table tbody td:nth-child(13) {
+  background-color: blue;
+}
+.member-list-table tbody td:nth-child(14) {
+  display: flex;
+}
 .member-list-table table tr .member-list-btn {
   display: flex;
   justify-content: center;
@@ -33,5 +39,14 @@
 }
 .member-list-btn td {
   margin-top: 18px;
+}
+
+.member-list-table thead {
+  /* position: sticky;
+  top: 60px; */
+}
+.member-list-table button {
+  outline: none;
+  border: none;
   cursor: pointer;
 }

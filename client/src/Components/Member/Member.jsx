@@ -3,7 +3,7 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import { FaRegAddressCard } from "react-icons/fa";
 import { GrCurrency } from "react-icons/gr";
 import React, { useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 function Member() {
   // using state for input data capture
   const initialObj = {
@@ -38,10 +38,10 @@ function Member() {
     subscriptionpayment: "",
     regifee: "",
   };
+
   // const [file, setFile] = useState([]);  //imageupload useState
   const [memberInputData, setMemberInputData] = useState(initialObj); //input useState
   const [noticeMsg, setNoticeMsg] = useState(null); //success message useState
-  // const [employeeList, setEmployeeList] = useState([]);
 
   // input onchange function
   const handleOnChangeInput = (event) => {
@@ -71,7 +71,7 @@ function Member() {
     }, 1500);
 
     // axios api reques to server
-    Axios.post("http://localhost:5000/api/memberadd", {
+    axios.post("http://localhost:5000/api/memberadd", {
       catagory: memberInputData.catagory,
       factory: memberInputData.factory,
       union: memberInputData.union,
@@ -107,7 +107,6 @@ function Member() {
       regifee: memberInputData.regifee,
     });
     event.preventDefault();
-    console.log(memberInputData);
     setMemberInputData(initialObj);
     clearField();
   };
