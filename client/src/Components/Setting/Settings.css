@@ -1,6 +1,7 @@
-.system-button-section {
-  margin-top: 5px;
+.system-setting {
+  display: flex;
 }
+
 .system-button-section button {
   /* outline: none; */
   border: none;
@@ -37,4 +38,10 @@
 }
 .system-button-section button:nth-child(8) {
   margin-top: 10px;
+}
+.system-button-section {
+  display: inline-block;
+  padding: 20px;
+  background-image: linear-gradient(rgb(154, 160, 242), rgb(165, 227, 242));
+  border-radius: 0 0px 7px 7px;
 }

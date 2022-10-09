@@ -158,25 +158,20 @@ function Memberlist() {
                     </span>
                   </td>
 
-                  <div className="member-list-btn">
-                    <td>
-                      <button
-                        onClick={() => handleUpdate(console.log("updated"))}
-                      >
-                        <FcRefresh />
-                      </button>
-                    </td>
-                    <td>
-                      <button onClick={() => handleSub(console.log("sub"))}>
-                        <FcMoneyTransfer />
-                      </button>
-                    </td>
-                    <td>
-                      <button onClick={() => handleDelete(value.id)}>
-                        <FcDeleteRow />
-                      </button>
-                    </td>
-                  </div>
+                  <td className="operation-btn">
+                    <FcRefresh
+                      className="list-operation-btn"
+                      onClick={() => handleUpdate(console.log("updated"))}
+                    />
+                    <FcMoneyTransfer
+                      className="list-operation-btn"
+                      onClick={() => handleSub(console.log("sub"))}
+                    />
+                    <FcDeleteRow
+                      className="list-operation-btn"
+                      onClick={() => handleDelete(value.id)}
+                    />
+                  </td>
                 </tr>
               );
             })}

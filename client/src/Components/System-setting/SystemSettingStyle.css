@@ -1,0 +1,56 @@
+.system-title {
+  text-align: center;
+}
+.system-section {
+  display: flex;
+  margin-top: 10px;
+
+  width: 60vw;
+  justify-content: space-around;
+}
+.system-section .system input {
+  padding: 7px 15px 7px 15px;
+  border: 1px solid rgb(201, 201, 201);
+  outline: none;
+  background-color: rgb(220, 252, 241);
+  border-radius: 3px;
+}
+.sugg-table {
+  /* background-color: blueviolet; */
+  text-align: center;
+  border: 1px solid green;
+  border-radius: 3px;
+  box-shadow: 2px 4px;
+}
+.sugg-table th {
+  background-color: rgb(169, 215, 255);
+}
+.sugg-table tr {
+  /* background-color: rgb(176, 176, 176); */
+}
+.sugg-table tr td {
+  background-color: rgb(214, 255, 255);
+}
+.system button {
+  padding: 7px;
+  margin-left: 5px;
+  background-color: green;
+  cursor: pointer;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+.system button:hover {
+  background-color: rgb(58, 183, 58);
+}
+.system button:active {
+  box-shadow: 2px 3px black;
+  transform: translateY(2px);
+}
+.system-data-btn {
+  cursor: pointer;
+}
+.system-data-btn:hover {
+  transform: scale(1.5);
+}

@@ -3,6 +3,7 @@
   width: 100%;
   background-color: rgb(207, 207, 207);
   font-size: 12px;
+  overflow-x: auto;
 }
 .member-list-table table tr {
   background-color: rgb(255, 255, 255);
@@ -26,12 +27,7 @@
 .member-list-table table tr .active_deactive {
   border-radius: 2px;
 }
-.member-list-table tbody td:nth-child(13) {
-  background-color: blue;
-}
-.member-list-table tbody td:nth-child(14) {
-  display: flex;
-}
+
 .member-list-table table tr .member-list-btn {
   display: flex;
   justify-content: center;
@@ -45,8 +41,17 @@
   /* position: sticky;
   top: 60px; */
 }
-.member-list-table button {
-  outline: none;
-  border: none;
-  cursor: pointer;
+
+.operation-btn {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 18px;
+}
+.list-operation-btn {
+  transform: scale(1.3);
+  /* cursor: pointer; */
+}
+.list-operation-btn:hover {
+  transform: scale(1.8);
 }
